@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Main from "./pages/Main";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Write from "./pages/Write";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
               <Route path="/" element={<Main />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              
+              <Route path="/write" element={<Write />} />
               
       </Routes>
     </BrowserRouter>

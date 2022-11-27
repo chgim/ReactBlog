@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import { useNavigate } from "react-router-dom";
+// import Footer from '../components/Footer';
 // import Login from './Login';
 
 function Register(){
@@ -19,6 +20,11 @@ function Register(){
         setForm(nextForm);
     }
     const onClick = () => {
+        if ((username.length < 1)||(password.length<1)||(password2.length<1)||(address.length<1)) { 
+            form.username.current.focus();
+            return;
+          }
+
         alert("회원가입 완료"); 
         navigate('/login');
         setForm({
@@ -87,6 +93,7 @@ function Register(){
             </form>
            </div>
            </div>
+           
         </div>
     );
 

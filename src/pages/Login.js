@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate,  } from "react-router-dom";
+// import Footer from "../components/Footer";
 
 function Login() {
   const navigate=useNavigate();
@@ -10,13 +11,21 @@ function Login() {
 
   const onClickLogin = () => {
     localStorage.setItem("user", form.userName);
-    alert(form.username + "님 환영합니다.");
-    navigate('/');
-    //main 이동
-    setForm({
-      uername: "",
-      password: "",
-    });
+    if (form.username.length < 1) {
+      form.username.current.focus();
+      return;
+    }else if(form.password.length < 1){
+      form.password.current.focus();
+      return;
+    }
+      alert(form.username + "님 환영합니다.");
+      navigate('/');
+      setForm({
+        uername: "",
+        password: "",
+      });
+    
+    
   };
   const onClickRegister = () => {
     navigate('/register');
@@ -42,6 +51,7 @@ function Login() {
           height: "250px",
           marginLeft: "35%",
           marginTop: "18%",
+          marginBottom:"100px"
         }}
       >
         <div
@@ -56,7 +66,7 @@ function Login() {
         </div>
         <div
           className="inner"
-          style={{ textAlign: "center", marginTop: "15px", border: "2px solid black",padding:"40px", borderRadius:"12px" }}
+          style={{ textAlign: "center", marginTop: "15px", border: "2px solid black",padding:"40px", borderRadius:"12px"  }}
         >
           <form>
             <input
@@ -108,6 +118,7 @@ function Login() {
           </form>
         </div>
       </div>
+      
     </div>
   );
 }

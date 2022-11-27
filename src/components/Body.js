@@ -8,7 +8,7 @@ const Body=()=>{
             <button
         style={{width:"90px",height:"25px",borderRadius:"6px", float:"right" ,margin:" 10px 50px" }}
           onClick={() => {
-            navigate('/login');
+            navigate('/write');
           }}
         >
           글쓰기

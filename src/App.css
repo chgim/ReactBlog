@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
-
+@font-face {
+  font-family: 'KOFIHDrLEEJWTTF-B';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/KOFIHDrLEEJWTTF-B.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
 /* App */
 .App {
     margin:0px auto;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif,'KOFIHDrLEEJWTTF-B';
 }
 
 /* editor */
@@ -15,6 +20,9 @@
     width:100%;
     text-align: center;
 }
+
+
+
 .DiaryEditor {
   border: 1px solid gray;
   text-align: center;
