@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate,  } from "react-router-dom";
-// import Footer from "../components/Footer";
+
 
 function Login() {
   const navigate=useNavigate();
@@ -11,15 +11,15 @@ function Login() {
 
   const onClickLogin = () => {
     localStorage.setItem("user", form.userName);
-    if (form.username.length < 1) {
-      form.username.current.focus();
+    if (form.username.length < 1) { //미입력시 return
+      form.username.current.focus();//해당 텍스트 focus
       return;
     }else if(form.password.length < 1){
       form.password.current.focus();
       return;
     }
       alert(form.username + "님 환영합니다.");
-      navigate('/');
+      navigate('/'); //main 이동
       setForm({
         uername: "",
         password: "",

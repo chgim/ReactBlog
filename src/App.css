@@ -97,3 +97,8 @@ textarea {
 .DiaryItem textarea {
   padding: 10px;
 }
+/*Header 비디오 밝기*/
+.hd2 video{
+  filter: brightness(80%)
+}
+

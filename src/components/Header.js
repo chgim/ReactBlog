@@ -28,7 +28,7 @@ const Header=()=>{
         </button>
 
 
-              <div className="title"onClick={()=>{navigate('/')}} >Time To Travel</div> 
+              <div className="title" style={{color:"#554644"}}onClick={()=>{navigate('/')}} >Time To Travel</div> 
               
                 {isLogin ? (
         <button
@@ -54,7 +54,13 @@ const Header=()=>{
         </button>
       )}
             </div>
-            <div className="hd2"><img src="images/panorama.jpg" alt="이미지" style={{width:"100%",height:"420px", opacity:"0.8" ,}}></img></div>
+            
+            
+            <div className="hd2">
+            <video src="/images/21.mp4" loop autoPlay muted style={{width:"100%" ,margin:"0px auto" ,opacity:"0.9"}}/>
+              {/* <img src="images/panorama.jpg" alt="이미지" style={{width:"100%",height:"420px", opacity:"0.8" ,}}></img> */}
+              
+              </div>
             <div className="sc1"></div>
         </div>
     );
