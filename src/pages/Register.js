@@ -81,7 +81,7 @@ function Register(){
              이메일<br/>
             <input
             style={{width:"350px", height:"25px",marginTop:"5px",marginBottom:"5px"}}
-            type = 'text'
+            type = 'address'
             name = 'address'
             required=""
             placeholder = '이메일 주소를 입력하세요'
@@ -89,7 +89,7 @@ function Register(){
             onChange = {onChange}
             onKeyPress = {onKeyPress}
             /><br/>
-            <button  type="submit" style={{textAlign:"center",width:"358px",height:"33px", margin:"18px auto", borderRadius:"6px"}} onClick = {onClick}>가입하기</button>
+            <button  type="submit" style={{textAlign:"center",width:"358px",height:"33px", margin:"18px auto", borderRadius:"6px",  cursor:"pointer"}} onClick = {onClick}>가입하기</button>
             </form>
            </div>
            </div>

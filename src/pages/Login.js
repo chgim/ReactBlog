@@ -103,13 +103,13 @@ function Login() {
             >
               <button
                 type="submit"
-                style={{ marginRight: "16px",width:"170px",height:"33px", borderRadius:"6px" }}
+                style={{ marginRight: "16px",width:"170px",height:"33px", borderRadius:"6px" ,  cursor:"pointer"}}
                 onClick={onClickRegister}
               >
                 회원가입
               </button>
               <button
-              style={{ width:"170px",height:"33px", borderRadius:"6px" }}
+              style={{ width:"170px",height:"33px", borderRadius:"6px",  cursor:"pointer" }}
                type="submit"
                 onClick={onClickLogin}>
                 로그인

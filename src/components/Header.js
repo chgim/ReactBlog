@@ -19,7 +19,7 @@ const Header=()=>{
             style={{textAlign:"center", fontSize:"42px" ,margin:"10px", fontFamily: "KOFIHDrLEEJWTTF-B"  }}>
               
               <button
-        style={{width:"90px",height:"25px",position:"absolute",top:"17px",left:"50px",borderRadius:"6px"  }}
+        style={{width:"90px",height:"25px",position:"absolute",top:"17px",left:"50px",borderRadius:"6px",  cursor:"pointer"   }}
           onClick={() => {
             navigate(-1);
           }}
@@ -28,11 +28,11 @@ const Header=()=>{
         </button>
 
 
-              <div className="title" style={{color:"#554644"}}onClick={()=>{navigate('/')}} >Time To Travel</div> 
+        <div className="title" style={{color:"#323132"}}onClick={()=>{navigate('/')}} >Time To Travel</div> 
               
                 {isLogin ? (
         <button
-        style={{width:"90px",height:"25px",position:"absolute",top:"17px",right:"50px",borderRadius:"6px" }}
+        style={{width:"90px",height:"25px",position:"absolute",top:"17px",right:"50px",borderRadius:"6px",   cursor:"pointer"}}
           onClick={() => {
             localStorage.removeItem("user");
             alert("로그아웃 되었습니다.");
@@ -44,7 +44,7 @@ const Header=()=>{
         </button>
       ) : (
         <button
-        style={{width:"90px",height:"25px",position:"absolute",top:"17px",right:"50px",borderRadius:"6px"  }}
+        style={{width:"90px",height:"25px",position:"absolute",top:"17px",right:"50px",borderRadius:"6px",  cursor:"pointer" }}
           onClick={() => {
             navigate('/login');
             //로그인 페이지 이동
