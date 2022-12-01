@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useReducer, useRef } from "react";
+import React, { useReducer, useRef , useEffect,} from "react";
 import "./App.css";
 // import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -24,6 +24,7 @@ const reducer = (state, action) => {
       newState = [action.data, ...state]; // 변경될 값
       break;
     }
+   
     case "REMOVE" : {
       newState = state.filter((it)=>it.id !== action.targetId); //id가 매치하지 않는 값만 보여줌
       break;
@@ -35,6 +36,7 @@ const reducer = (state, action) => {
     default:
       return state;
   }
+  localStorage.setItem("blog", JSON.stringify(newState));
   return newState;
 };
 
@@ -55,19 +57,39 @@ const dummyData = [
 
 
 function App() {
-
- // data의 기본 state는 []에서 dummyData 받기
+  const [data, dispatch] = useReducer(reducer, dummyData);
   
-  
- const [data, dispatch] = useReducer(reducer, dummyData);
-   
- //console.log(new Date().getTime(dummyData)); // 현재시간
 
-// data의 기본 state는 []
-// const [data, dispatch] = useReducer(reducer, []);
+  
+  const dataId = useRef(6); //dummyData id가 5까지 있음.
+  
+  useEffect(()=>{
+    const localData = localStorage.getItem("blog");
+    if(localData) {
+      const blogList = JSON.parse(localData).sort(
+        (a,b) => parseInt(b.id) - parseInt(a.id)
+      );
+      dataId.current = parseInt(blogList[0].id) + 1
+     
+	 // 초기값을 설정해주는 액션
+      dispatch({type:"INIT", data:blogList});
+    }
+  }, []);
+
 console.log(new Date().getTime());
-// 일기 id로 사용
-const dataId = useRef(0);
+
+
+
+
+
+
+
+
+/////
+
+/////
+
+
 
 // CREATE
 const onCreate = (date, title, content) => {
@@ -82,7 +104,7 @@ const onCreate = (date, title, content) => {
     }
   });
   dataId.current += 1;
-}
+};
 
 // REMOVE
 const onRemove = (targetId) => {
@@ -107,14 +129,14 @@ const onEdit = (targetId, date,title, content) => {
 
   return (
     <BlogStateContext.Provider value={data}>
-      <BlogDispatchContext.Provider value={{onCreate, onEdit, onRemove}}>
+      <BlogDispatchContext.Provider value={{onCreate, onEdit, onRemove }}>
     <BrowserRouter>
       <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/write" element={<Write />} />
-              <Route path="/edit" element={<Edit />}/>
+              <Route path="/edit/:id" element={<Edit />}/>
               <Route path="/blog/:id" element={<Blog />}/>
               
       </Routes>
@@ -128,138 +150,3 @@ const onEdit = (targetId, date,title, content) => {
 export default App;
 
 
-
-
-
-// import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-// import "./App.css";
-// import Login from "./components/Login";
-// import Login from "./components/Login";
-// import DiaryEditor from "./DiaryEditor";
-// import DiaryList from "./DiaryList";
-
-// const App = () => {
-  // const [data, setData] = useState([]);
-
-  // const dataId = useRef(0);
-
-  // const getData = async () => {
-  //   const res = await fetch(
-  //     "https://jsonplaceholder.typicode.com/comments"
-  //   ).then((res) => res.json());
-
-  //   const initData = res.slice(0, 20).map((it) => {
-  //     return {
-  //       author: it.email,
-  //       content: it.body,
-  //       emotion: Math.floor(Math.random() * 5) + 1,
-  //       created_date: new Date().getTime(),
-  //       id: dataId.current++
-  //     };
-  //   });
-
-  //   setData(initData);
-  // };
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     getData();
-  //   }, 1500);
-  // }, []);
-
-  // const onCreate = useCallback((author, content, emotion) => {
-  //   const created_date = new Date().getTime();
-  //   const newItem = {
-  //     author,
-  //     content,
-  //     emotion,
-  //     created_date,
-  //     id: dataId.current
-  //   };
-
-  //   dataId.current += 1;
-  //   setData((data) => [newItem, ...data]);
-  // }, []);
-
-  // const onRemove = useCallback((targetId) => {
-  //   setData((data) => data.filter((it) => it.id !== targetId));
-  // }, []);
-
-  // const onEdit = useCallback((targetId, newContent) => {
-  //   setData((data) =>
-  //     data.map((it) =>
-  //       it.id === targetId ? { ...it, content: newContent } : it
-  //     )
-  //   );
-  // }, []);
-
-  // const getDiaryAnalysis = useMemo(() => {
-  //   if (data.length === 0) {
-  //     return { goodcount: 0, badCount: 0, goodRatio: 0 };
-  //   }
-
-  //   const goodCount = data.filter((it) => it.emotion >= 3).length;
-  //   const badCount = data.length - goodCount;
-  //   const goodRatio = (goodCount / data.length) * 100.0;
-  //   return { goodCount, badCount, goodRatio };
-  // }, [data.length]);
-
-  // const { goodCount, badCount, goodRatio } = getDiaryAnalysis;
-
-  // return (
-    // <div className="App">
-    //   <DiaryEditor onCreate={onCreate} />
-    //   <div>전체 일기 : {data.length}</div>
-    //   <div>기분 좋은 일기 개수 : {goodCount}</div>
-    //   <div>기분 나쁜 일기 개수 : {badCount}</div>
-    //   <div>기분 좋은 일기 비율 : {goodRatio}</div>
-    //   <DiaryList onEdit={onEdit} onRemove={onRemove} diaryList={data} />
-    // </div>
-    // <Login />
-  // );
-// };
-// export default App;
-
-
-
-// // import logo from './logo.svg';
-// import './App.css';
-// import DiaryEditor from './DiaryEditor';
-// import DiaryList from './DiaryList';
-
-
-// const dummyList=[
-//   {
-//     id:1,
-//     author:"김찬호",
-//     content:"하이1",
-//     emotion:5,
-//     created_date:new Date().getTime(),
-//   },
-//   {
-//     id:2,
-//     author:"김찬호2",
-//     content:"하이2",
-//     emotion:3,
-//     created_date:new Date().getTime(),
-//   },
-//   {
-//     id:3,
-//     author:"김찬호3",
-//     content:"하이3",
-//     emotion:5,
-//     created_date:new Date().getTime(),
-//   },
-// ]
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//       <DiaryEditor/>
-//       <DiaryList diaryList={dummyList}/>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;

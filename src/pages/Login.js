@@ -10,7 +10,6 @@ function Login() {
   });
 
   const onClickLogin = () => {
-    localStorage.setItem("user", form.userName);
     if (form.username.length < 1) { //미입력시 return
       form.username.current.focus();//해당 텍스트 focus
       return;

@@ -1,9 +1,10 @@
 // import Body from "../components/Body";
 import Header from "../components/Header";
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import { useNavigate  } from "react-router-dom";
 import { BlogDispatchContext } from "./../App";
 import Footer from "../components/Footer";
+import EditorButton from "./EditorButton";
 // import Login from "./Login";
 
 
@@ -12,7 +13,7 @@ const getStringDate = (date) => {
   };
 
 
-const BlogEditor=()=>{
+const BlogEditor=({isEdit, originData})=>{
     const navigate=useNavigate();
     const [title, setTitle]=useState();
     const [date, setDate] = useState(getStringDate(new Date())); // new Date 오늘 날짜 초기값
@@ -21,35 +22,50 @@ const BlogEditor=()=>{
     const contentRef = useRef(); // textarea 참조
   
     // 작성완료 시 App.js에 전달
-  const {onCreate} = useContext(BlogDispatchContext);
+  const {onCreate, onEdit, onRemove} = useContext(BlogDispatchContext);
 
-
-
-//     const [form, setForm] = useState({
-//       title : '',
-//       content : '',
-//   })
-//   const {title, content} = form;
-  // const onChange = e => {
-  //     const nextForm = {
-  //         ...form,  
-  //         [e.target.name] : e.target.value  
-  //     }
-  //     setForm(nextForm);
-  // }
   const handleSubmit = () => {//완
     if(content.length < 1 || title.length<1) {
       titleRef.current.focus();
       return;
     }
-	// 일기 작성 시 날짜, 내용, 감정 onCreate의 인자로
-    onCreate(date, title, content);  
-    // 작성완료 시 home 화면 이동
-    // 일기 작성 옵션 뒤로가기 막기(replace:true)
-    navigate('/', {replace:true});
-  }
-  
+    if(window.confirm(isEdit ? "글을 수정하시겠습니까?" : "새로운 글을 작성하시겠습니까?")){
+      // 새 일기 작성인 경우(수정이 아닌 경우)
+      if(!isEdit) {
+        onCreate(date, title, content);
+      }
+      // 수정중인 경우 (onEdit의 props : 원본 id, 날짜, 내용, 감정)
+      else {
+        onEdit(originData.id, date, title, content);
+      }
+    };
+    // onCreate(date, title, content);  
+ 
     
+    navigate('/', {replace:true});
+  
+  };
+
+  const handleRemove = () => {
+    
+      if(window.confirm("정말 삭제하시겠습니까?")) {
+        onRemove(originData.id);
+        navigate('/',{replace:true});
+    }
+  
+  };
+
+
+  useEffect(()=>{
+    if(isEdit) {
+      setDate(getStringDate(new Date(parseInt(originData.date))));
+      setTitle(originData.title);
+      setContent(originData.content);
+    }
+  },[isEdit, originData]);
+
+  
+
     
     return(//완
       
@@ -68,11 +84,21 @@ const BlogEditor=()=>{
         >
           이미지 업로드 {/*이미지 업로드 나중에 구현 */}
         </button>
-             <button  type="submit"
-        style={{width:"90px",height:"25px",borderRadius:"6px", float:"right" ,margin:"10px 50px" , cursor:"pointer" }}
+        <button  type="submit"
+        style={{width:"90px",height:"25px",borderRadius:"6px", float:"right" ,marginTop:"10px", marginBottom:"10px" ,marginRight:"50px",marginLeft:"20px", cursor:"pointer" }}
           onClick={handleSubmit}         >
           작성완료
         </button>
+        
+       
+      <EditorButton btn={isEdit &&<button 
+        style={{width:"90px",height:"25px",borderRadius:"6px", cursor:"pointer",margin:"10px 0px", float:"right" }}
+        onClick={handleRemove}
+        >
+        삭제하기
+        </button> }/> {/*edit 페이지에서만 버튼 활성화 */}
+        
+             
         </div>
         <hr style={{height:"2px", background:"gray", width:"100%"}}/>
         
