@@ -47,22 +47,22 @@ export const BlogDispatchContext = React.createContext();
 
 // 일기 더미데이터 (시간순)
 const dummyData = [
-  { id:1,title:"하이", content:"독립 이래 최악의 외환위기를 겪어온 스리랑카가 결국 공식적인 디폴트(채무불이행) 상태라고 19일 로이터 통신이 보도했다.", date:1669551560812, },
-  { id:2,title:"하이",content:"핀란드와 스웨덴이 북대서양조약기구 나토 가입을 위한 신청서를 제출했지만, 양국의 나토 가입을 반대해 온 터키의 입장은 여전히 강경합니다.", date:1669551560813, },
-  { id:3,title:"하이",content:"전 세계 인구 절반 이상이 심장질환 발병 주요 위험요인 중 하나인 고혈압을 가지고 있다. 혈압 조절은 유전적 요인, 생활습관 요인, 체내 미생물군이 어떤 형태로 조화를 이뤄 기인하는 것으로 밝혀져 있다.", date:1669551560814, },
-  { id:4,title:"하이", content:"로봇 산업은 공장과 같은 생산 현장에서 위험 작업을 대체하는 산업용과 의료·외식·숙박 등 부문에서 활용되는 서비스용으로 구분된다.", date:1669551560815, },
-  { id:5,title:"하이",content:"칸 영화제에서 첫 선을 보인 배우 이정재의 감독 데뷔작 '헌트'가 상영 전회차 매진을 기록했다.", date:1669551560816, },
+  { id:1,title:"부산 1박2일 여행 후기", content:"부산여행 당일치기로 다녀오기 아쉽다면 1박2일 여행은 어떨까요. 1박2일동안 부산의 주요관광지는 모두 둘러볼 수 있습니다. 더불어 부산여행은 늦은 밤까지 알차게 즐길 수 있는 해운대가 있어 더욱 좋은 곳이죠. 젋은이 살아있는 부산여행 1박2일을 준비하고 계신다면 일차, 코스별로 정리해둔 아래 1박2일 부산여행 코스를 참고해보시기 바랍니다.", date:1669551560812, },
+  { id:2,title:"후쿠오카 온천여행",content:"강릉은 바다향, 솔향, 커피 향이 있는 도시예요. 아름다운 동해와 울창한 소나무 숲은 강릉만이 가진 천혜의 관광 자원이에요. 다양한 문화유산이 있고, 최근에는 커피의 도시로 자리매김하면서 사계절 여행 마니아들의 사랑을 받는 곳이 되었어요. 또한 싱싱한 해산물과 다양한 향토 음식이 여행객을 입을 즐겁게 해주는 도시이죠. 강릉으로 떠난다면 둘러볼 만한 곳을 소개할게요.", date:1669551560813, },
+  { id:3,title:"강릉 가볼만한 곳 베스트 9",content:"강릉은 바다향, 솔향, 커피 향이 있는 도시예요. 아름다운 동해와 울창한 소나무 숲은 강릉만이 가진 천혜의 관광 자원이에요. 다양한 문화유산이 있고, 최근에는 커피의 도시로 자리매김하면서 사계절 여행 마니아들의 사랑을 받는 곳이 되었어요. 또한 싱싱한 해산물과 다양한 향토 음식이 여행객을 입을 즐겁게 해주는 도시이죠. 강릉으로 떠난다면 둘러볼 만한 곳을 소개할게요.", date:1669551560814, },
+  { id:4,title:"서울광광 테마여행 코스 추천", content:"롯데월드타워 몰에는 상점, 카페, 레스토랑, 갤러리, 콘서트 홀이 있습니다. 이 타워는 세계에서 5번째로 제일 높으며 전망대, 스카이워크, 럭셔리한 호텔이 있습니다.", date:1669551560815, },
+  { id:5,title:"왕초보를 위한 서울 3박4일 코스",content:"스타필드 코엑스몰은 아시아 최대의 지하 쇼핑몰입니다. 국내 및 해외 브랜드를 취급하며 아쿠아리움, 영화관, 김치 박물관 등의 관광명소를 제공합니다.", date:1669551560816, },
 ]
 
 
 
 function App() {
   const [data, dispatch] = useReducer(reducer, dummyData);
-  
+ 
 
   
   const dataId = useRef(6); //dummyData id가 5까지 있음.
-  
+ 
   useEffect(()=>{
     const localData = localStorage.getItem("blog");
     if(localData) {
@@ -77,18 +77,6 @@ function App() {
   }, []);
 
 console.log(new Date().getTime());
-
-
-
-
-
-
-
-
-/////
-
-/////
-
 
 
 // CREATE
@@ -129,7 +117,7 @@ const onEdit = (targetId, date,title, content) => {
 
   return (
     <BlogStateContext.Provider value={data}>
-      <BlogDispatchContext.Provider value={{onCreate, onEdit, onRemove }}>
+      <BlogDispatchContext.Provider value={{onCreate, onEdit, onRemove}}>
     <BrowserRouter>
       <Routes>
               <Route path="/" element={<Main />} />

@@ -34,6 +34,8 @@ const BlogList=({blogList})=>{
   const getProcessedBlogList=()=>{
     
 
+   
+
     const compare=(a,b)=>{
     if(sortType==='latest'){
         return parseInt(b.date)-parseInt(a.date);
