@@ -44,12 +44,12 @@ function Register(){
         <div>
             <div className="alds" style={{width:"30%",height:"390px" ,margin:"auto",marginTop:"9%",}}>
            <div className="logo2" style={{textAlign:"center",  fontSize:"35px",marginBottom:"15px",color:"#5e4a48",fontWeight: "bold"}}>Time To Travel</div>
-           <div className="inners" style={{textAlign:"left", padding:"40px", borderRadius:"12px" , borderColor:"#5e4a48", border:"3px solid" }}>
+           <div className="inners" style={{textAlign:"left", padding:"40px", borderRadius:"10spx" ,  border:"3px solid",borderColor:"#313031", }}>
            
-         <form style={{textAlign:"left",width:"100%", margin:"auto",color:"#5e4a48",fontWeight: "bold"}}>
+         <form style={{textAlign:"left",width:"100%", margin:"auto",color:"#313031",fontWeight: "bold"}}>
            아이디<br/>
            <input 
-           style={{width:"350px", height:"25px", marginTop:"5px",marginBottom:"5px"}}
+           style={{width:"350px", height:"25px", marginTop:"5px",marginBottom:"5px",borderColor:"#313031"}}
             type = 'text'
             name = 'username'
             required=""
@@ -60,7 +60,7 @@ function Register(){
             /><br/>
              비밀번호<br/>
             <input
-            style={{width:"350px", height:"25px",marginTop:"5px",marginBottom:"5px"}}
+            style={{width:"350px", height:"25px",marginTop:"5px",marginBottom:"5px",borderColor:"#313031"}}
             type = 'text'
             name = 'password'
             required=""
@@ -70,7 +70,7 @@ function Register(){
             /><br/>
             비밀번호 확인<br/>
             <input
-            style={{width:"350px", height:"25px",marginTop:"5px",marginBottom:"5px"}}
+            style={{width:"350px", height:"25px",marginTop:"5px",marginBottom:"5px",borderColor:"#313031"}}
             type = 'text'
             name = 'password2'
             required=""
@@ -80,7 +80,7 @@ function Register(){
             /><br/>
              이메일<br/>
             <input
-            style={{width:"350px", height:"25px",marginTop:"5px",marginBottom:"5px"}}
+            style={{width:"350px", height:"25px",marginTop:"5px",marginBottom:"5px",borderColor:"#313031"}}
             type = 'address'
             name = 'address'
             required=""
@@ -89,7 +89,7 @@ function Register(){
             onChange = {onChange}
             onKeyPress = {onKeyPress}
             /><br/>
-            <button  type="submit" style={{textAlign:"center",width:"358px",height:"33px", margin:"18px auto", borderRadius:"6px",  cursor:"pointer"}} onClick = {onClick}>가입하기</button>
+            <button  type="submit" style={{textAlign:"center",width:"358px",height:"33px", margin:"18px auto", borderRadius:"3px",  cursor:"pointer"}} onClick = {onClick}>가입하기</button>
             </form>
            </div>
            </div>

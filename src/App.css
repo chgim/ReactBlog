@@ -8,7 +8,7 @@
 /* App */
 .App {
     margin:0px auto;
-    font-family: 'Noto Sans KR', sans-serif,'KOFIHDrLEEJWTTF-B';
+    font-family: 'Noto Sans KR', sans-serif;
     
 }
 
@@ -30,50 +30,51 @@
 }
 
 .title{
-  color:#5e4a48;
+  color:#313031;
   font-weight: bold;
 }
 
 .login{
-  color:#5e4a48;
+  color:#313031;
   font-weight: bold;
 }
 button{
   border:2px solid;
-  border-color:#5e4a48;
+  border-color:#313031;
   background-color: white;
   font-weight: bold;
-  color:#5e4a48;
+  color:#313031;
 }
 button:hover{
-  background-color:#5e4a48;
+  background-color:#313031;
   color:white;
 }
 input{
-  border-color:#5e4a48;
+  border-color:#313031;
   border:2px solid;
   font-weight: bold;
-  color:#5e4a48;
+  color:#313031;
 }
 
 .ControlMenu{
-  border-color:#5e4a48;
+  border-color:#313031;
   border:2px solid;
   font-weight: bold;
-  color:#5e4a48;
+  color:#313031;
 }
 form input ,textarea{
-  border-color:#5e4a48;
+  border-color:#313031;
   border:2px solid;
   font-weight: bold;
-  color:#5e4a48;
+  color:#313031;
+  border-radius: 3px;
 }
 .inner{
-  border-color:#5e4a48;
+  border-color:#313031;
   border:2px solid;
 }
 .foot{
-  color: #5e4a48;
+  color: #313031;
   font-size: 18px;
   font-weight: bold;
 }

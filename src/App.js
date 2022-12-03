@@ -13,7 +13,7 @@ import Blog from "./pages/Blog";
 
 
 // 2개의 파라미터 (state, action)
-const reducer = (state, action) => {
+export const reducer = (state, action) => {
   let newState = [];
   switch(action.type){
     case "INIT" : {
@@ -68,20 +68,35 @@ function App() {
   
   const dataId = useRef(6); //dummyData id가 5까지 있음.
  
-  useEffect(()=>{
-    const localData = localStorage.getItem("blog");
-    if(localData) {
-      const blogList = JSON.parse(localData).sort(
-        (a,b) => parseInt(b.id) - parseInt(a.id)
-      );
-      dataId.current = parseInt(blogList[0].id) + 1
+  // useEffect(()=>{
+  //   const localData = localStorage.getItem("blog");
+  //   if(localData) {
+  //     const blogList = JSON.parse(localData).sort(
+  //       (a,b) => parseInt(b.id) - parseInt(a.id)
+  //     );
+  //     dataId.current = parseInt(blogList[0].id) + 1
      
-	 // 초기값을 설정해주는 액션
-      dispatch({type:"INIT", data:blogList});
+	//  // 초기값을 설정해주는 액션
+  //     dispatch({type:"INIT", data:blogList});
+  //   }
+  // }, []);
+  useEffect(() => {
+    const localData = localStorage.getItem("blog");
+    if (localData) {
+      const blogList = JSON.parse(localData).sort(
+        (a, b) => parseInt(b.id) - parseInt(a.id)
+      );
+      dataId.current = parseInt(blogList[0].id) + 1;
+
+      // 초기값을 설정해주는 액션
+      dispatch({ type: "INIT", data: blogList });
+    } else {
+      localStorage.setItem("blog", JSON.stringify(dummyData));
+      dispatch({ type: "INIT", data: dummyData });
     }
   }, []);
 
-console.log(new Date().getTime());
+// console.log(new Date().getTime());
 
 
 // CREATE

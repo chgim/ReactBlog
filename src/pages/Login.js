@@ -65,11 +65,11 @@ function Login() {
         </div>
         <div
           className="inner"
-          style={{ textAlign: "center", marginTop: "15px",padding:"40px", borderRadius:"12px", borderColor:"#5e4a48", border:"3px solid"  }}
+          style={{ textAlign: "center", marginTop: "15px",padding:"40px", borderRadius:"10px",  border:"3px solid", borderColor:"#313031", }}
         >
           <form>
             <input
-              style={{width:"350px",height:"30px" ,marginBottom:"10px"}}
+              style={{width:"350px",height:"30px" ,marginBottom:"10px", borderColor:"#313031"}}
               type="text"
               name="username"
               required=""
@@ -102,13 +102,13 @@ function Login() {
             >
               <button
                 type="submit"
-                style={{ marginRight: "16px",width:"170px",height:"33px", borderRadius:"6px" ,  cursor:"pointer"}}
+                style={{ marginRight: "16px",width:"170px",height:"33px", borderRadius:"3px" ,  cursor:"pointer"}}
                 onClick={onClickRegister}
               >
                 회원가입
               </button>
               <button
-              style={{ width:"170px",height:"33px", borderRadius:"6px",  cursor:"pointer" }}
+              style={{ width:"170px",height:"33px", borderRadius:"3px",  cursor:"pointer" }}
                type="submit"
                 onClick={onClickLogin}>
                 로그인

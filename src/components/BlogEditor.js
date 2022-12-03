@@ -77,26 +77,26 @@ const BlogEditor=({isEdit, originData})=>{
              
         <div className="buttons">
              <button  type="submit"
-        style={{width:"90px",height:"25px",borderRadius:"6px", float:"left" ,marginTop:"10px", marginLeft:"50px", marginRight:"15px" ,  cursor:"pointer" ,}}
+        style={{width:"90px",height:"25px",borderRadius:"3px", float:"left" ,marginTop:"10px", marginLeft:"50px", marginRight:"15px" ,  cursor:"pointer" ,}}
         onClick={()=>navigate(-1)}
         >
           취소
         </button> 
         <button
-        style={{width:"110px",height:"25px",borderRadius:"6px", float:"left" ,marginTop:"10px" , cursor:"pointer" }}
+        style={{width:"110px",height:"25px",borderRadius:"3px", float:"left" ,marginTop:"10px" , cursor:"pointer" }}
         onClick={imgUpload} 
         >
           이미지 업로드 {/*이미지 업로드 나중에 구현 */}
         </button>
         <button  type="submit"
-        style={{width:"90px",height:"25px",borderRadius:"6px", float:"right" ,marginTop:"10px", marginBottom:"10px" ,marginRight:"50px",marginLeft:"20px", cursor:"pointer" }}
+        style={{width:"90px",height:"25px",borderRadius:"3px", float:"right" ,marginTop:"10px", marginBottom:"10px" ,marginRight:"50px",marginLeft:"20px", cursor:"pointer" }}
           onClick={handleSubmit}         >
           작성완료
         </button>
         
        
       <EditorButton btn={isEdit &&<button 
-        style={{width:"90px",height:"25px",borderRadius:"6px", cursor:"pointer",margin:"10px 0px", float:"right" }}
+        style={{width:"90px",height:"25px",borderRadius:"3px", cursor:"pointer",margin:"10px 0px", float:"right" }}
         onClick={handleRemove}
         >
         삭제하기
@@ -104,7 +104,7 @@ const BlogEditor=({isEdit, originData})=>{
         
              
         </div>
-        <hr style={{height:"1.2px", background:"#5e4a48", width:"100%"}}/>
+        <hr style={{height:"1.2px", background:"#313031", width:"100%"}}/>
         
             {/*여기서부터 폼 */}
         <form style={{textAlign:"left", margin:" auto" ,paddingLeft:"50px"}}>
@@ -135,7 +135,7 @@ const BlogEditor=({isEdit, originData})=>{
             required=""
             placeholder = '내용'
             value = {content}
-            ref={contentRef} //ref가 뭐하는지 아직 모름
+            ref={contentRef} 
             onChange={(e)=>setContent(e.target.value)}
             />
             </form>
