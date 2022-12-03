@@ -1,6 +1,6 @@
 
 import { useNavigate } from "react-router-dom";
-const BlogItem=({id, title, content, date})=>{
+const BlogItem=({id, title, content, date, })=>{
     const navigate=useNavigate();
     
     const env=process.env;
@@ -17,6 +17,7 @@ const BlogItem=({id, title, content, date})=>{
     return(
     <div className="BlogItem">
     <div onClick={goDetail} className="info_wrapper" style={{borderStyle:"solid"}}>
+        {/* <div className="blog_img">{img}</div> */}
         <div className="blog_date">{strDate}</div>
         <div className="blog_title">{title}</div>
         <div className="blog_content_preview">{content.slice(0,25)}</div>

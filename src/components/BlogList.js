@@ -13,7 +13,7 @@ const sortOptionList=[
 const ControlMenu=({value, onChange, optionList})=>{
   return (
   <select
-  style={{width:"90px",height:"25px",borderRadius:"6px",cursor:"pointer"}}
+  style={{width:"90px",height:"25px",borderRadius:"6px",cursor:"pointer",}}
   className="ControlMenu"
   value={value} onChange={(e)=>onChange(e.target.value)}>
     {optionList.map((it, idx)=>(
@@ -29,13 +29,20 @@ const ControlMenu=({value, onChange, optionList})=>{
 const BlogList=({blogList})=>{
   const navigate=useNavigate();
   const[sortType, setSortType]=useState("latest");
+  const [form, setForm] = useState({search:""});
+
+  // //search
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      setForm({
+        search:""
+      });
+   alert("검색완료");
+    };
+  };
   
 
   const getProcessedBlogList=()=>{
-    
-
-   
-
     const compare=(a,b)=>{
     if(sortType==='latest'){
         return parseInt(b.date)-parseInt(a.date);
@@ -53,12 +60,25 @@ const BlogList=({blogList})=>{
   return( 
   <div className="BlogList">
     <div className="menu_wrapper" style={{display:"block"}}>
-      <div className="left_col" style={{  marginTop:"10px",marginLeft: "50px",display:"inline-block",cursor:"pointer" }}>
-      <ControlMenu value={sortType} 
+      <div className="left_col" style={{  marginTop:"10px",marginLeft: "50px",float:"left", cursor:"pointer",  }}>
+      <ControlMenu value={sortType} style={{display:"inlineBlock"}}
       onChange={setSortType} optionList={sortOptionList}/>
+      
+      {/*search*/}
+      <form style={{display:"inline", marginLeft:"15px"}}>
+      <input type="text" 
+      style={{width:"160px",height:"19px",borderRadius:"6px",cursor:"pointer" }} 
+      value={form.search} name="search"  
+      onChange={(e) => {
+        setForm({ search: e.target.value });
+      }}
+      onKeyPress={onKeyPress}  placeholder="Search..." />
+      </form>
+      {/*search*/}
+      
       </div>
       <button
-        style={{width:"90px",height:"25px",borderRadius:"6px", float:"right" ,marginTop:" 10px",marginRight: "50px",cursor:"pointer" }}
+        style={{width:"90px",height:"25px",borderRadius:"6px", float:"right" ,marginTop:" 10px",marginRight: "50px",cursor:"pointer", marginBottom:"10px" }}
           onClick={() => {
             navigate('/write');
           }}
@@ -66,7 +86,7 @@ const BlogList=({blogList})=>{
           글쓰기
         </button>
     </div>
-    <hr style={{height:"2px", background:"gray", width:"100%"}}/>
+    <hr style={{height:"1.2px", background:"#5e4a48", width:"100%"}}/>
    <div className="dta" style={{}}>
        {getProcessedBlogList().map((it)=>(
       // <div key={it.id}>{it.content} {it.emotion}</div>

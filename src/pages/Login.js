@@ -20,7 +20,7 @@ function Login() {
       alert(form.username + "님 환영합니다.");
       navigate('/'); //main 이동
       setForm({
-        uername: "",
+        username: "",
         password: "",
       });
     
@@ -29,7 +29,7 @@ function Login() {
   const onClickRegister = () => {
     navigate('/register');
     setForm({
-      uername: "",
+      username: "",
       password: "",
     });
   };
@@ -49,7 +49,7 @@ function Login() {
           width: "30%",
           height: "250px",
           marginLeft: "35%",
-          marginTop: "18%",
+          marginTop: "14%",
           marginBottom:"100px"
         }}
       >
@@ -61,11 +61,11 @@ function Login() {
             
           }}
         >
-          Time To Travel
+         <div className="login">Time To Travel</div> 
         </div>
         <div
           className="inner"
-          style={{ textAlign: "center", marginTop: "15px", border: "2px solid black",padding:"40px", borderRadius:"12px"  }}
+          style={{ textAlign: "center", marginTop: "15px",padding:"40px", borderRadius:"12px", borderColor:"#5e4a48", border:"3px solid"  }}
         >
           <form>
             <input

@@ -28,7 +28,7 @@ const Header=()=>{
         </button>
 
 
-        <div className="title" style={{color:"#323132", cursor:"pointer"}}onClick={()=>{navigate('/')}} >Time To Travel</div> 
+        <div className="title" style={{ cursor:"pointer",}}onClick={()=>{navigate('/')}} >Time To Travel</div> 
               
                 {isLogin ? (
         <button

@@ -50,14 +50,16 @@ const Blog = () => {
     return (
       <div className="BlogPage">
        <Header/>
+       <div className="top">
+       <p>{data.title}</p>
         <div>{getStringDate(new Date(data.date))}</div>
-            <div className="ContentWrapper">
-            <p>{data.title}</p>
+        </div>
               <p>{data.content}</p>
-            </div>
-            <hr style={{height:"2px", background:"gray", width:"100%"}}/>
+            
+              {/* <hr style={{height:"1.2px", background:"#5e4a48", width:"100%"}}/> */}
         
-        
+        <div className="title" style={{fontSize:"20px",marginTop:"100px", marginLeft:"50px"}}>댓글</div>
+        <hr/>
         <Twittler/>
         <Footer/>
       </div>

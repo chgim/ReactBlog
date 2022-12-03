@@ -52,11 +52,12 @@ this.state.tweets.map(tweet=>{
     return <SingleTweet key={tweet.uuid} tweet={tweet}/>
 })
 }</div>
-<hr style={{height:"2px", background:"gray", width:"100%"}}/>
+{/* <div className='title' style={{fontSize:"20px", marginLeft:"50px", marginTop:"50px"}}>댓글</div>
+<hr style={{height:"1.2px", background:"#5e4a48", width:"100%"}}/> */}
 
-<input type = 'text' id = "title" placeholder = '작성자'></input><br/>       
-<textarea id="new-tweet-content"></textarea><br/>
-<button id="submit-new-tweet" onClick={this.addTweet}>새 글 쓰기</button>
+<input type = 'text' id = "title" placeholder = '작성자' style={{width:"8%", height:"20px", marginTop:"10px",marginBottom:"10px", marginLeft:"50px" }}></input><br/>       
+<textarea id="new-tweet-content" style={{width:"30%", height:"30px",marginBottom:"7px", marginLeft:"50px" }}></textarea><br/>
+<button id="submit-new-tweet" onClick={this.addTweet} style={{marginLeft:"50px"}}>댓글 업로드</button>
 
 </div>
 )

@@ -26,6 +26,7 @@ const BlogEditor=({isEdit, originData})=>{
 
   const handleSubmit = () => {//완
     if(content.length < 1 || title.length<1) {
+      alert("제목과 내용을 입력해 주세요");
       titleRef.current.focus();
       return;
     }
@@ -64,7 +65,9 @@ const BlogEditor=({isEdit, originData})=>{
     }
   },[isEdit, originData]);
 
-  
+  const imgUpload=()=>{
+    alert("이미지 업로드 완료");
+  };
 
     
     return(//완
@@ -74,13 +77,14 @@ const BlogEditor=({isEdit, originData})=>{
              
         <div className="buttons">
              <button  type="submit"
-        style={{width:"90px",height:"25px",borderRadius:"6px", float:"left" ,marginTop:"10px", marginLeft:"50px", marginRight:"15px" ,  cursor:"pointer"}}
+        style={{width:"90px",height:"25px",borderRadius:"6px", float:"left" ,marginTop:"10px", marginLeft:"50px", marginRight:"15px" ,  cursor:"pointer" ,}}
         onClick={()=>navigate(-1)}
         >
           취소
         </button> 
         <button
         style={{width:"110px",height:"25px",borderRadius:"6px", float:"left" ,marginTop:"10px" , cursor:"pointer" }}
+        onClick={imgUpload} 
         >
           이미지 업로드 {/*이미지 업로드 나중에 구현 */}
         </button>
@@ -100,7 +104,7 @@ const BlogEditor=({isEdit, originData})=>{
         
              
         </div>
-        <hr style={{height:"2px", background:"gray", width:"100%"}}/>
+        <hr style={{height:"1.2px", background:"#5e4a48", width:"100%"}}/>
         
             {/*여기서부터 폼 */}
         <form style={{textAlign:"left", margin:" auto" ,paddingLeft:"50px"}}>

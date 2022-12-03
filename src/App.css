@@ -24,82 +24,56 @@
 
 
 
-.DiaryEditor {
-  border: 1px solid gray;
-  text-align: center;
-  padding: 20px;
-}
-
-.DiaryEditor input,
-textarea {
-  margin-bottom: 20px;
-  width: 500px;
-}
-
-.DiaryEditor input {
-  padding: 10px;
-}
-.DiaryEditor textarea {
-  padding: 10px;
-  height: 150px;
-}
-
-.DiaryEditor select {
-  width: 300px;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.DiaryEditor button {
-  width: 500px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-/* List  */
-
-.DiaryList {
-  border: 1px solid gray;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-.DiaryList h2 {
-  text-align: center;
-}
-
-/* ITEM */
-
-.DiaryItem {
-  background-color: rgb(240, 240, 240);
-  margin-bottom: 10px;
-  padding: 20px;
-}
-
-.DiaryItem span {
-  margin-right: 10px;
-}
-
-.DiaryItem .info {
-  border-bottom: 1px solid gray;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-}
-.DiaryItem .date {
-  color: gray;
-}
-
-.DiaryItem .content {
-  margin-bottom: 30px;
-  margin-top: 30px;
-  font-weight: bold;
-}
-
-.DiaryItem textarea {
-  padding: 10px;
-}
 /*Header 비디오 밝기*/
 .hd2 video{
   filter: brightness(80%)
 }
 
+.title{
+  color:#5e4a48;
+  font-weight: bold;
+}
+
+.login{
+  color:#5e4a48;
+  font-weight: bold;
+}
+button{
+  border:2px solid;
+  border-color:#5e4a48;
+  background-color: white;
+  font-weight: bold;
+  color:#5e4a48;
+}
+button:hover{
+  background-color:#5e4a48;
+  color:white;
+}
+input{
+  border-color:#5e4a48;
+  border:2px solid;
+  font-weight: bold;
+  color:#5e4a48;
+}
+
+.ControlMenu{
+  border-color:#5e4a48;
+  border:2px solid;
+  font-weight: bold;
+  color:#5e4a48;
+}
+form input ,textarea{
+  border-color:#5e4a48;
+  border:2px solid;
+  font-weight: bold;
+  color:#5e4a48;
+}
+.inner{
+  border-color:#5e4a48;
+  border:2px solid;
+}
+.foot{
+  color: #5e4a48;
+  font-size: 18px;
+  font-weight: bold;
+}
