@@ -17,6 +17,7 @@ function Login() {
       form.password.current.focus();
       return;
     }
+      localStorage.setItem("user", form.username);
       alert(form.username + "님 환영합니다.");
       navigate('/'); //main 이동
       setForm({

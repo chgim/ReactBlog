@@ -28,7 +28,9 @@ const Blog = () => {
     user: "",
     comment: "",
   });
-
+  const getStringDate = (date) => {
+    return date.toISOString().slice(0, 10);
+  };
   console.log(comments);
 
   useEffect(() => {
@@ -70,16 +72,18 @@ const Blog = () => {
     return (
       <div className="BlogPage">
         <Header />
-        <div className="top">
-          <p>{data.title}</p>
+        <div className="top" style={{width:"30%", marginLeft:"35%", marginTop:"100px"}}>
+          <div style={{textAlign:"center", fontSize:"36px"}}>{data.title}</div>
+           <div style={{marginLeft:"30px", marginTop:"15px"}}> {getStringDate(new Date(data.date))}</div>
+           <hr style={{width:"95%", textAlign:"center", border:"1px solid", background:"#313031", marginBottom:"70px"}}/>
         </div>
-        <p>{data.content}</p>
+        <div style={{width:"70%", marginLeft:"15%"}}>{data.content}</div>
 
         {/* <hr style={{height:"1.2px", background:"#5e4a48", width:"100%"}}/> */}
 
         <div
           className="title"
-          style={{ fontSize: "20px", marginTop: "100px", marginLeft: "50px" }}
+          style={{ fontSize: "20px", marginTop: "100px", marginLeft: "50px", marginBottom:"13px" }}
         >
           댓글쓰기
         </div>
@@ -90,8 +94,8 @@ const Blog = () => {
           comments.map((item) => (
             <div>
               <div className="comments" style={{marginLeft:"50px",}}>
-              <div style={{fontWeight:"bold", fontSize:"18px", marginBottom:"5px"}}>{item.user}</div>
-              <div style={{fontSize:"17px"}}>{item.comment}</div>
+              <div style={{fontWeight:"bold", fontSize:"16px", marginBottom:"5px"}}>{item.user}</div>
+              <div style={{fontSize:"14px"}}>{item.comment}</div>
               </div>
               <hr/>  
             </div>
@@ -99,7 +103,7 @@ const Blog = () => {
           
           </div>
         <input
-        style={{width:"8%",height:"22px", marginBottom:"5px", marginLeft:"50px",borderRadius:"3px",marginTop:"20px" }}
+        style={{width:"8%",height:"20px", marginBottom:"5px", marginLeft:"50px",borderRadius:"3px",marginTop:"20px" }}
           placeholder="작성자"
           type="text"
           value={commentInput.user}
@@ -108,7 +112,7 @@ const Blog = () => {
           }}
         /><br/>
         <textarea
-          style={{width:"25%", height:"35px", marginLeft:"50px",borderRadius:"3px"}}
+          style={{width:"25%", height:"30px", marginLeft:"50px",borderRadius:"3px"}}
           placeholder="글을 작성해 주세요."
           value={commentInput.comment}
           onChange={(e) => {
