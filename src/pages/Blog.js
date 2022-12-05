@@ -72,13 +72,14 @@ const Blog = () => {
     return (
       <div className="BlogPage">
         <Header />
-        <div className="top" style={{width:"30%", marginLeft:"35%", marginTop:"100px"}}>
-          <div style={{textAlign:"center", fontSize:"36px"}}>{data.title}</div>
-           <div style={{marginLeft:"30px", marginTop:"15px"}}> {getStringDate(new Date(data.date))}</div>
-           <hr style={{width:"95%", textAlign:"center", border:"1px solid", background:"#313031", marginBottom:"70px"}}/>
+      
+        <div className="top" style={{width:"40%", marginLeft:"30%", marginTop:"100px"}}>
+          <div style={{textAlign:"center", fontSize:"36px", fontWeight:"bold"}}>{data.title}</div>
+           <div style={{marginLeft:"50px", marginTop:"22px", fontWeight:"bold"}}> {getStringDate(new Date(data.date))}</div>
+           <hr style={{width:"90%",marginLeft:"5%", textAlign:"center", border:"1px solid", background:"#313031", marginBottom:"70px"}}/>
         </div>
-        <div style={{width:"70%", marginLeft:"15%"}}>{data.content}</div>
-
+        <div style={{width:"50%", marginLeft:"25%", fontWeight:"bold",letterSpacing:"1px", lineHeight:"27px"}}>{data.content}</div>
+        
         {/* <hr style={{height:"1.2px", background:"#5e4a48", width:"100%"}}/> */}
 
         <div
@@ -135,6 +136,7 @@ const Blog = () => {
           댓글 업로드
         </button>
         <Footer />
+        
       </div>
     );
   }

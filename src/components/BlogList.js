@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import BlogItem from "./BlogItem";
 
 const sortOptionList = [
-  { value: "DESC", name: "최신순" },
-  { value: "ASC", name: "오래된 순" },
+  { value: "NEW", name: "최신순" },
+  { value: "OLD", name: "오래된 순" },
 ];
 
 const BlogList = ({ blogList }) => {
   const navigate = useNavigate();
-  const [sortType, setSortType] = useState("DESC");
+  const [sortType, setSortType] = useState("NEW");
   const [searchValue, setSearchValue] = useState("");
   const [data, setData] = useState([]);
 
@@ -23,7 +23,7 @@ const BlogList = ({ blogList }) => {
   };
 
   useEffect(() => {
-    if (sortType === "DESC") {
+    if (sortType === "OLD") {
       setData(data.sort((a, b) => b.date - a.date));
     } else {
       setData(data.sort((a, b) => a.date - b.date));
