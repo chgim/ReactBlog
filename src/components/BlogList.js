@@ -47,9 +47,8 @@ const BlogList = ({ blogList }) => {
       : [];
     setData(getAll.filter((e) => e.title.includes(searchValue)));
   };
-
   return (
-    <div className="BlogList">
+    <div className="BlogList" >
       <div className="menu_wrapper" style={{ display: "block" }}>
         <div
           className="left_col"

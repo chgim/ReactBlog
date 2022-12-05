@@ -1,14 +1,17 @@
 import { useContext, useEffect, useState } from "react";
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { BlogStateContext } from "../App";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-// import Twittler from "../components/Twittler";
 
-/*Comment 코드 */
 
-/* */
+
+
+
+ const env=process.env;
+  env.PUBLIC_URL=env.PUBLIC_URL || "";
 
 const Blog = () => {
   const { id } = useParams(); // pathVariable = id
@@ -69,22 +72,30 @@ const Blog = () => {
   else {
     // 오늘의 감정 불러오기
 
+
+
+   
+
+
+
+
+
     return (
       <div className="BlogPage">
+        
         <Header />
       
         <div className="top" style={{width:"40%", marginLeft:"30%", marginTop:"100px"}}>
           <div style={{textAlign:"center", fontSize:"36px", fontWeight:"bold"}}>{data.title}</div>
-           <div style={{marginLeft:"50px", marginTop:"22px", fontWeight:"bold"}}> {getStringDate(new Date(data.date))}</div>
-           <hr style={{width:"90%",marginLeft:"5%", textAlign:"center", border:"1px solid", background:"#313031", marginBottom:"70px"}}/>
+           <div style={{marginLeft:"50px", marginTop:"22px", fontWeight:"bold", fontSize:"16px"}}> {getStringDate(new Date(data.date))}</div>
+           <hr style={{width:"90%",marginLeft:"5%", textAlign:"center", border:"1px solid", background:"#313031", marginBottom:"50px", opacity:"0.2"}}/>
         </div>
-        <div style={{width:"50%", marginLeft:"25%", fontWeight:"bold",letterSpacing:"1px", lineHeight:"27px"}}>{data.content}</div>
+        <img src="/images/a3.jpg" alt="fail" style={{width:"50%", height:"440px", opacity:"0.9", marginLeft:"25%", marginBottom:"50px" }}/>
+        <div style={{width:"50%", marginLeft:"25%",letterSpacing:"1px", lineHeight:"27px", fontSize:"19px"}}>{data.content}</div>
         
-        {/* <hr style={{height:"1.2px", background:"#5e4a48", width:"100%"}}/> */}
-
         <div
           className="title"
-          style={{ fontSize: "20px", marginTop: "100px", marginLeft: "50px", marginBottom:"13px" }}
+          style={{ fontSize: "20px", marginTop: "120px", marginLeft: "50px", marginBottom:"13px" }}
         >
           댓글쓰기
         </div>
@@ -104,7 +115,7 @@ const Blog = () => {
           
           </div>
         <input
-        style={{width:"8%",height:"20px", marginBottom:"5px", marginLeft:"50px",borderRadius:"3px",marginTop:"20px" }}
+        style={{width:"10%",height:"22px", marginBottom:"10px", marginLeft:"50px",borderRadius:"3px",marginTop:"20px" }}
           placeholder="작성자"
           type="text"
           value={commentInput.user}
@@ -113,15 +124,15 @@ const Blog = () => {
           }}
         /><br/>
         <textarea
-          style={{width:"25%", height:"30px", marginLeft:"50px",borderRadius:"3px"}}
+          style={{width:"30%", height:"50px", marginLeft:"50px",borderRadius:"3px", display:"block"}}
           placeholder="글을 작성해 주세요."
           value={commentInput.comment}
           onChange={(e) => {
             setCommentInput({ ...commentInput, comment: e.target.value });
           }}
-        /><br/>
+        />
         <button
-          style={{width:"90px",height:"25px",borderRadius:"3px",marginLeft:"50px",cursor:"pointer" ,}}
+          style={{width:"90px",height:"25px",borderRadius:"3px",marginLeft:"50px",cursor:"pointer" ,marginTop:"10px"}}
           onClick={() => {
             let commentData = localStorage.getItem("commentAll")
               ? JSON.parse(localStorage.getItem("commentAll"))

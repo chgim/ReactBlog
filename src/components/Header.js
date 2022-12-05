@@ -5,7 +5,9 @@ import { useNavigate  } from "react-router-dom";
 // import Login from "../pages/Login";
 
 
-const Header=()=>{
+const Header=( )=>{
+ 
+
     const navigate=useNavigate();
     useEffect(() => {
         localStorage.getItem("user") ?  setIsLogin(true) : setIsLogin(false); 
@@ -14,7 +16,7 @@ const Header=()=>{
     const [isLogin, setIsLogin] = useState(false);
 
     return(
-        <div>
+        <div >
             <div className="hd1"  
             style={{textAlign:"center", fontSize:"42px" ,margin:"10px"  }}>
               

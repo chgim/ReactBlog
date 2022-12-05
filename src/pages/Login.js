@@ -43,7 +43,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div style={{}}>
       <div
         className="all"
         style={{
@@ -51,7 +51,8 @@ function Login() {
           height: "250px",
           marginLeft: "35%",
           marginTop: "14%",
-          marginBottom:"100px"
+          marginBottom:"100px",
+          backgroundColor:"white"
         }}
       >
         <div
