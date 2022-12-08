@@ -18,10 +18,10 @@ const Header=( )=>{
     return(
         <div >
             <div className="hd1"  
-            style={{textAlign:"center", fontSize:"42px" ,margin:"10px"  }}>
+            style={{textAlign:"center", fontSize:"42px" ,padding:"10px",   }}>
               
               <button
-        style={{width:"90px",height:"25px",position:"absolute",top:"17px",left:"50px",borderRadius:"3px",  cursor:"pointer"   }}
+        style={{width:"90px",height:"25px",position:"absolute",top:"19px",left:"50px",borderRadius:"3px",  cursor:"pointer"   }}
           onClick={() => {
             navigate(-1);
           }}
@@ -34,7 +34,7 @@ const Header=( )=>{
               
                 {isLogin ? (
         <button
-        style={{width:"90px",height:"25px",position:"absolute",top:"17px",right:"50px",borderRadius:"3px",   cursor:"pointer"}}
+        style={{width:"90px",height:"25px",position:"absolute",top:"19px",right:"50px",borderRadius:"3px",   cursor:"pointer"}}
           onClick={() => {
             localStorage.removeItem("user");
             alert("로그아웃 되었습니다.");
@@ -46,7 +46,7 @@ const Header=( )=>{
         </button>
       ) : (
         <button
-        style={{width:"90px",height:"25px",position:"absolute",top:"17px",right:"50px",borderRadius:"3px",  cursor:"pointer" }}
+        style={{width:"90px",height:"25px",position:"absolute",top:"19px",right:"50px",borderRadius:"3px",  cursor:"pointer" }}
           onClick={() => {
             navigate('/login');
             //로그인 페이지 이동

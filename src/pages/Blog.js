@@ -84,22 +84,22 @@ const Blog = () => {
       <div className="BlogPage">
         
         <Header />
-      
-        <div className="top" style={{width:"40%", marginLeft:"30%", marginTop:"100px"}}>
-          <div style={{textAlign:"center", fontSize:"36px", fontWeight:"bold"}}>{data.title}</div>
-           <div style={{marginLeft:"50px", marginTop:"22px", fontWeight:"bold", fontSize:"16px"}}> {getStringDate(new Date(data.date))}</div>
-           <hr style={{width:"90%",marginLeft:"5%", textAlign:"center", border:"1px solid", background:"#313031", marginBottom:"50px", opacity:"0.2"}}/>
+      <div className="all" style={{backgroundColor:"white", width:"50%", marginLeft:"25%", marginTop:"100px", borderRadius:"5px"}}>
+        <div className="top" style={{width:"80%", marginLeft:"10%", paddingTop:"40px"}}>
+          <div style={{ fontSize:"33px", fontWeight:"bold"}}>{data.title}</div>
+           <div style={{marginLeft:"3px",marginTop:"8px", fontWeight:"bold", fontSize:"16px",color:"#404040"}}> {getStringDate(new Date(data.date))}</div>
+           <hr style={{width:"100%" ,textAlign:"center", border:"1px solid", background:"#313031", marginBottom:"50px", opacity:"0.3", marginTop:"10px"}}/>
         </div>
-        <img src="/images/a3.jpg" alt="fail" style={{width:"50%", height:"440px", opacity:"0.9", marginLeft:"25%", marginBottom:"50px" }}/>
-        <div style={{width:"50%", marginLeft:"25%",letterSpacing:"1px", lineHeight:"27px", fontSize:"19px"}}>{data.content}</div>
-        
+        <img src="/images/a3.jpg" alt="fail" style={{width:"90%", height:"480px", opacity:"0.9", marginLeft:"5%", marginBottom:"50px", borderRadius:"5px" }}/>
+        <div style={{width:"90%", marginLeft:"5%",letterSpacing:"1px", lineHeight:"30px", fontSize:"20px", fontWeight:"bold", color:"#202020", paddingBottom:"40px"}}>{data.content}</div>
+        </div>
         <div
           className="title"
-          style={{ fontSize: "20px", marginTop: "120px", marginLeft: "50px", marginBottom:"13px" }}
+          style={{ fontSize: "22px", marginTop: "120px", marginLeft: "50px", marginBottom:"7px", fontWeight:"bold" }}
         >
           댓글쓰기
         </div>
-        <hr />
+        <hr style={{ height: "1.4px", background: "#313031", width: "100%" }} />
         <div className="commentAll" >
         
         {comments[0] &&
@@ -115,7 +115,7 @@ const Blog = () => {
           
           </div>
         <input
-        style={{width:"10%",height:"22px", marginBottom:"10px", marginLeft:"50px",borderRadius:"3px",marginTop:"20px" }}
+        style={{width:"10%",height:"22px", marginBottom:"10px", marginLeft:"50px",borderRadius:"3px",marginTop:"30px" }}
           placeholder="작성자"
           type="text"
           value={commentInput.user}

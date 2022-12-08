@@ -8,7 +8,7 @@ const sortOptionList = [
   { value: "OLD", name: "오래된 순" },
 ];
 
-const BlogList = ({ blogList }) => {
+const BlogList = () => {
   const navigate = useNavigate();
   const [sortType, setSortType] = useState("NEW");
   const [searchValue, setSearchValue] = useState("");
@@ -120,13 +120,16 @@ const BlogList = ({ blogList }) => {
           글쓰기
         </button>
       </div>
-      <hr style={{ height: "1.2px", background: "#313031", width: "100%" }} />
+      <hr style={{ height: "1.4px", background: "#313031", width: "100%" }} />
       <div className="dta" style={{}}>
         {data &&
           data.map((it) => (
             // <div key={it.id}>{it.content} {it.emotion}</div>
             <BlogItem key={it.id} {...it} />
-          ))}
+            
+          ))
+          
+          }
       </div>
     </div>
   );

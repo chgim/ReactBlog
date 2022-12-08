@@ -63,7 +63,7 @@ function Login() {
             
           }}
         >
-         <div className="login">Time To Travel</div> 
+         <div className="login" style={{backgroundColor:"#f4f7fa"}}>Time To Travel</div> 
         </div>
         <div
           className="inner"

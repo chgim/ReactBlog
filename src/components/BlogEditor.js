@@ -104,14 +104,14 @@ const BlogEditor=({isEdit, originData})=>{
         
              
         </div>
-        <hr style={{height:"1.2px", background:"#313031", width:"100%"}}/>
+        <hr style={{height:"1.4px", background:"#313031", width:"100%"}}/>
         
             {/*여기서부터 폼 */}
         <form style={{textAlign:"left", margin:" auto" ,paddingLeft:"50px"}}>
            
             <input
               className="inputDate"
-              style={{width:"10%", height:"30px", marginTop:"10px" ,display:"block" }}
+              style={{width:"10%", height:"30px", marginTop:"40px" ,display:"block" }}
               type="date"
               value={date}
               onChange={(e)=>setDate(e.target.value)} />
