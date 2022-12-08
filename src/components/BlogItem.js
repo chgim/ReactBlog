@@ -65,9 +65,9 @@ const BlogItem=({id, title, content, date,})=>{
 //New Style//
 <div className="BlogItem" style={{}}>
 
-<div className="list" style={{width:"60%",marginLeft:"20%", paddingBottom:"-10px",marginTop:"100px", height:"210px" }}>
+<div className="list" style={{width:"60%",marginLeft:"20%", paddingBottom:"-10px",marginTop:"70px", height:"210px" ,cursor:"pointer"}}>
 <div onClick={goDetail} className="info_wrapper">
-<img src={imgArray[2].src} alt="fail" style={{width:"250px", height:"200px", opacity:"0.9",float:"right", marginTop:"-10px", borderRadius:"5px" }}/>
+<img className="imgy" src={imgArray[2].src} alt="fail" style={{width:"250px", height:"200px", opacity:"0.9",float:"right", marginTop:"-10px", borderRadius:"5px" }}/>
 <div className="blog_title" style={{fontSize:"27px",  fontWeight:"bold", marginTop:"20px",}}>{title}</div>   
 <div className="blog_date" style={{marginLeft:"2px", marginTop:"5px",fontWeight:"bold", color:"#404040"  }}>{strDate}</div>
 <div className="blog_content_preview" style={{ marginTop:"20px", width:"63%", fontSize:"15px", fontWeight:"bold", color:"#404040" }}>{content.slice(0,100)+"..."}</div>

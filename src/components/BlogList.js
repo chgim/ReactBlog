@@ -92,7 +92,7 @@ const BlogList = () => {
               onChange={(e) => {
                 setSearchValue(e.target.value);
               }}
-              onKeyPress={onKeyPress}
+              
               placeholder="Search..."
             />
             <button style={{width: "50px", height: "25px", borderRadius: "3px", marginBottom:"10px",cursor: "pointer",marginLeft:"5px", marginRight:"5px" }}

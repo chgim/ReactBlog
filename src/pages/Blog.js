@@ -25,6 +25,7 @@ const Blog = () => {
           (e) => (e.id = id)
         )
       : []
+
   );
   const [commentInput, setCommentInput] = useState({
     id: id,
@@ -43,7 +44,9 @@ const Blog = () => {
           (e) => (e.id = id)
         )
       );
+     
     }
+    
   }, [update]);
 
   useEffect(() => {
@@ -84,18 +87,18 @@ const Blog = () => {
       <div className="BlogPage">
         
         <Header />
-      <div className="all" style={{backgroundColor:"white", width:"50%", marginLeft:"25%", marginTop:"100px", borderRadius:"5px"}}>
+      <div className="all" style={{backgroundColor:"white", width:"50%", marginLeft:"25%", marginTop:"100px", borderRadius:"5px",}}>
         <div className="top" style={{width:"80%", marginLeft:"10%", paddingTop:"40px"}}>
           <div style={{ fontSize:"33px", fontWeight:"bold"}}>{data.title}</div>
            <div style={{marginLeft:"3px",marginTop:"8px", fontWeight:"bold", fontSize:"16px",color:"#404040"}}> {getStringDate(new Date(data.date))}</div>
            <hr style={{width:"100%" ,textAlign:"center", border:"1px solid", background:"#313031", marginBottom:"50px", opacity:"0.3", marginTop:"10px"}}/>
         </div>
-        <img src="/images/a3.jpg" alt="fail" style={{width:"90%", height:"480px", opacity:"0.9", marginLeft:"5%", marginBottom:"50px", borderRadius:"5px" }}/>
-        <div style={{width:"90%", marginLeft:"5%",letterSpacing:"1px", lineHeight:"30px", fontSize:"20px", fontWeight:"bold", color:"#202020", paddingBottom:"40px"}}>{data.content}</div>
+        <img  src="/images/a3.jpg" alt="fail" style={{width:"90%", height:"480px", opacity:"0.9", marginLeft:"5%", marginBottom:"50px", borderRadius:"5px" }}/>
+        <div style={{width:"90%", marginLeft:"5%",letterSpacing:"1px", lineHeight:"35px", fontSize:"20px", color:"#202020", paddingBottom:"40px"}}>{data.content}</div>
         </div>
         <div
-          className="title"
-          style={{ fontSize: "22px", marginTop: "120px", marginLeft: "50px", marginBottom:"7px", fontWeight:"bold" }}
+          className="dat"
+          style={{ fontSize: "22px", marginTop: "120px", marginLeft: "50px", marginBottom:"7px", fontWeight:"bold", color:"#313031" }}
         >
           댓글쓰기
         </div>

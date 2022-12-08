@@ -52,26 +52,27 @@ function Login() {
           marginLeft: "35%",
           marginTop: "14%",
           marginBottom:"100px",
-          backgroundColor:"white"
+          backgroundColor:"#f4f7fa"
         }}
       >
         <div
           className="logo"
           style={{
+            backgroundColor:"#f4f7fa",
             textAlign: "center",
             fontSize: "35px",
             
           }}
         >
-         <div className="login" style={{backgroundColor:"#f4f7fa"}}>Time To Travel</div> 
+         <div className="login" style={{color:"#313031"}}>Time To Travel</div> 
         </div>
         <div
           className="inner"
-          style={{ textAlign: "center", marginTop: "15px",padding:"40px", borderRadius:"10px",  border:"3px solid", borderColor:"#313031", }}
+          style={{ textAlign: "center", marginTop: "15px",padding:"40px", borderRadius:"10px",  border:"3px solid", borderColor:"#313031",backgroundColor:"#f4f7fa" }}
         >
           <form>
             <input
-              style={{width:"350px",height:"30px" ,marginBottom:"10px", borderColor:"#313031"}}
+              style={{width:"350px",height:"30px" ,marginBottom:"10px", borderColor:"#313031",backgroundColor:"#f4f7fa"}}
               type="text"
               name="username"
               required=""
@@ -100,7 +101,7 @@ function Login() {
             <br />
             <div
               className="button"
-              style={{ marginTop: "10px", textAlign: "center" }}
+              style={{ marginTop: "15px", textAlign: "center" }}
             >
               <button
                 type="submit"

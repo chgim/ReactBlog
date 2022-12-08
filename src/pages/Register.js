@@ -47,7 +47,7 @@ function Register(){
     return(
         <div>
             <div className="alds" style={{width:"30%",height:"390px" ,margin:"auto",marginTop:"9%",}}>
-           <div className="logo2" style={{textAlign:"center",  fontSize:"35px",marginBottom:"15px",color:"#5e4a48",fontWeight: "bold"}}>Time To Travel</div>
+           <div className="logo2" style={{textAlign:"center",  fontSize:"35px",marginBottom:"15px",color:"#313031",fontWeight: "bold"}}>Time To Travel</div>
            <div className="inners" style={{textAlign:"left", padding:"40px", borderRadius:"10spx" ,  border:"3px solid",borderColor:"#313031", }}>
            
          <form style={{textAlign:"left",width:"100%", margin:"auto",color:"#313031",fontWeight: "bold"}}>
