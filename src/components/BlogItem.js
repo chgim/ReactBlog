@@ -1,7 +1,7 @@
 
 
 import { useNavigate } from "react-router-dom";
-const BlogItem=({id, title, content, date,})=>{
+const BlogItem=({id, title, content, date})=>{
     const navigate=useNavigate();
    
 

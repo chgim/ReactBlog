@@ -118,7 +118,7 @@ const Blog = () => {
           
           </div>
         <input
-        style={{width:"10%",height:"22px", marginBottom:"10px", marginLeft:"50px",borderRadius:"3px",marginTop:"30px" }}
+        style={{width:"10%",height:"22px", marginBottom:"10px", marginLeft:"50px",borderRadius:"3px",marginTop:"20px" }}
           placeholder="작성자"
           type="text"
           value={commentInput.user}
@@ -144,6 +144,11 @@ const Blog = () => {
             localStorage.removeItem("commentAll");
             localStorage.setItem("commentAll", JSON.stringify(commentData));
             setUpdate(!update);
+            alert("댓글 업로드 완료");
+            setCommentInput({
+              user: "",
+              comment: "",
+            });
           }}
         >
           {" "}

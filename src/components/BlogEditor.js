@@ -18,6 +18,7 @@ const BlogEditor=({isEdit, originData})=>{
     const [title, setTitle]=useState();
     const [date, setDate] = useState(getStringDate(new Date())); // new Date 오늘 날짜 초기값
     const [content, setContent] = useState(); // textarea 상태 변화 
+    
     const titleRef=useRef();
     const contentRef = useRef(); // textarea 참조
   
