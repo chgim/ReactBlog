@@ -25,6 +25,7 @@ const BlogItem=({id, title, content, date})=>{
 <div onClick={goDetail} className="info_wrapper">
 {/* <img className="imgy" src={imgArray[2].src} alt="fail" style={{width:"250px", height:"200px", opacity:"0.9",float:"right", marginTop:"-10px", borderRadius:"5px" }}/> */}
 {/*이미지 업로드 기능이 없어 기본 데이터 이후로는 a10까지 지정 이미지 업로드*/}
+
 <img className="imgy" src={process.env.PUBLIC_URL+`images/a${id}.jpg`} alt="fail" style={{width:"250px", height:"200px", opacity:"0.9",float:"right", marginTop:"-10px", borderRadius:"5px" }}/>
 {/*이미지 업로드 기능이 없어 기본 데이터 이후로는 a10까지 지정 이미지 업로드*/}
 <div className="blog_title" style={{fontSize:"27px",  fontWeight:"bold", marginTop:"20px",}}>{title}</div>   
