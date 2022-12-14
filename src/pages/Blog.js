@@ -141,7 +141,7 @@ const Blog = () => {
               ? JSON.parse(localStorage.getItem("commentAll"))
               : [];
             commentData.push(commentInput);
-            localStorage.removeItem("commentAll");
+            // localStorage.removeItem("commentAll");
             localStorage.setItem("commentAll", JSON.stringify(commentData));
             setUpdate(!update);
             alert("댓글 업로드 완료");
