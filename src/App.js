@@ -1,9 +1,8 @@
-/* eslint-disable */
 import React, { useReducer, useRef, useEffect } from "react";
 import "./App.css";
-// import React from "react";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import BoardList from "./pages/BoardList";
+
 import Main from "./pages/Main";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -19,8 +18,7 @@ export const reducer = (state, action) => {
       return action.data;
     }
     case "CREATE": {
-      // const newItem = { ...action.data };
-      newState = [action.data, ...state]; // 변경될 값
+      newState = [action.data, ...state];
       break;
     }
 
@@ -89,18 +87,6 @@ function App() {
 
   const dataId = useRef(6); //dummyData id가 5까지 있음.
 
-  // useEffect(()=>{
-  //   const localData = localStorage.getItem("blog");
-  //   if(localData) {
-  //     const blogList = JSON.parse(localData).sort(
-  //       (a,b) => parseInt(b.id) - parseInt(a.id)
-  //     );
-  //     dataId.current = parseInt(blogList[0].id) + 1
-
-  //  // 초기값을 설정해주는 액션
-  //     dispatch({type:"INIT", data:blogList});
-  //   }
-  // }, []);
   useEffect(() => {
     const localData = localStorage.getItem("blog");
     if (localData) {
@@ -116,8 +102,6 @@ function App() {
       dispatch({ type: "INIT", data: dummyData });
     }
   }, []);
-
-  // console.log(new Date().getTime());
 
   // CREATE
   const onCreate = (date, title, content) => {

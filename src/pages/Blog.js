@@ -10,7 +10,7 @@ env.PUBLIC_URL = env.PUBLIC_URL || "";
 
 const Blog = () => {
   const { id } = useParams(); // pathVariable = id
-  const blogList = useContext(BlogStateContext); // diaryList 가져오기
+  const blogList = useContext(BlogStateContext);
   const navigate = useNavigate(); // 이동
   const [data, setData] = useState();
   const [update, setUpdate] = useState(false);
@@ -47,12 +47,9 @@ const Blog = () => {
         (it) => parseInt(it.id) === parseInt(id)
       );
 
-      // 현재 상세페이지에서 보여줘야 하는 데이터를 id를 기준으로 찾아온다면
       if (targetBlog) {
-        // 일기가 존재할 때
         setData(targetBlog);
       } else {
-        // 일기가 없을 때 홈으로 이동
         alert("없는 일기 입니다.");
         navigate("/", { replace: true });
       }

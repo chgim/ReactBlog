@@ -1,11 +1,9 @@
-// import Body from "../components/Body";
 import Header from "../components/Header";
 import { useState, useRef, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BlogDispatchContext } from "./../App";
 import Footer from "../components/Footer";
 import EditorButton from "./EditorButton";
-// import Login from "./Login";
 
 const getStringDate = (date) => {
   return date.toISOString().slice(0, 10);
@@ -35,16 +33,12 @@ const BlogEditor = ({ isEdit, originData }) => {
         isEdit ? "글을 수정하시겠습니까?" : "새로운 글을 작성하시겠습니까?"
       )
     ) {
-      // 새 일기 작성인 경우(수정이 아닌 경우)
       if (!isEdit) {
         onCreate(date, title, content);
-      }
-      // 수정중인 경우 (onEdit의 props : 원본 id, 날짜, 내용, 감정)
-      else {
+      } else {
         onEdit(originData.id, date, title, content);
       }
     }
-    // onCreate(date, title, content);
 
     navigate("/", { replace: true });
   };
@@ -102,7 +96,7 @@ const BlogEditor = ({ isEdit, originData }) => {
           }}
           onClick={imgUpload}
         >
-          이미지 업로드 {/*이미지 업로드 나중에 구현 */}
+          이미지 업로드 {/*이미지 업로드 구현 X */}
         </button>
         <button
           type="submit"

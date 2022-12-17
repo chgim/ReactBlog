@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// import Login from "../pages/Login";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -60,7 +59,6 @@ const Header = () => {
               localStorage.removeItem("user");
               alert("로그아웃 되었습니다.");
               navigate("/login");
-              // 로그인페이지 이동 ex) navigate("/login")
             }}
           >
             로그아웃
@@ -78,7 +76,6 @@ const Header = () => {
             }}
             onClick={() => {
               navigate("/login");
-              //로그인 페이지 이동
             }}
           >
             로그인

@@ -1,6 +1,5 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { reducer } from "../App";
 import BlogItem from "./BlogItem";
 
 const sortOptionList = [
@@ -14,22 +13,10 @@ const BlogList = () => {
   const [searchValue, setSearchValue] = useState("");
   const [data, setData] = useState([]);
 
-  // //search
-  const onKeyPress = (e) => {
-    e.preventDefault();
-    if (e.key === "Enter") {
-      searchItem(e);
-    }
-  };
-
-  console.log(sortType);
-
   useEffect(() => {
     if (sortType === "OLD") {
-      console.log("Old");
       setData(data.sort((a, b) => b.date - a.date));
     } else {
-      console.log("New");
       setData(data.sort((a, b) => a.date - b.date));
     }
   }, [sortType]);
