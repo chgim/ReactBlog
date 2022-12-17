@@ -1,4 +1,4 @@
-import { useEffect,  useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 // import { reducer } from "../App";
 import BlogItem from "./BlogItem";
@@ -22,14 +22,17 @@ const BlogList = () => {
     }
   };
 
+  console.log(sortType);
+
   useEffect(() => {
     if (sortType === "OLD") {
+      console.log("Old");
       setData(data.sort((a, b) => b.date - a.date));
     } else {
+      console.log("New");
       setData(data.sort((a, b) => a.date - b.date));
     }
   }, [sortType]);
-
 
   useEffect(() => {
     setData(JSON.parse(localStorage.getItem("blog")));
@@ -48,7 +51,7 @@ const BlogList = () => {
     setData(getAll.filter((e) => e.title.includes(searchValue)));
   };
   return (
-    <div className="BlogList" >
+    <div className="BlogList">
       <div className="menu_wrapper" style={{ display: "block" }}>
         <div
           className="left_col"
@@ -92,13 +95,34 @@ const BlogList = () => {
               onChange={(e) => {
                 setSearchValue(e.target.value);
               }}
-              
               placeholder="Search..."
             />
-            <button style={{width: "50px", height: "25px", borderRadius: "3px", marginBottom:"10px",cursor: "pointer",marginLeft:"5px", marginRight:"5px" }}
-             onClick={searchItem}>검색</button>
-            <button style={{width: "50px", height: "25px", borderRadius: "3px", marginBottom:"10px",cursor: "pointer",}} 
-            onClick={onClickReset}>리셋</button>
+            <button
+              style={{
+                width: "50px",
+                height: "25px",
+                borderRadius: "3px",
+                marginBottom: "10px",
+                cursor: "pointer",
+                marginLeft: "5px",
+                marginRight: "5px",
+              }}
+              onClick={searchItem}
+            >
+              검색
+            </button>
+            <button
+              style={{
+                width: "50px",
+                height: "25px",
+                borderRadius: "3px",
+                marginBottom: "10px",
+                cursor: "pointer",
+              }}
+              onClick={onClickReset}
+            >
+              리셋
+            </button>
           </form>
           {/*search*/}
         </div>
@@ -121,15 +145,8 @@ const BlogList = () => {
         </button>
       </div>
       <hr style={{ height: "1.4px", background: "#313031", width: "100%" }} />
-      <div className="dta" style={{}}>
-        {data &&
-          data.map((it) => (
-            // <div key={it.id}>{it.content} {it.emotion}</div>
-            <BlogItem key={it.id} {...it} />
-            
-          ))
-          
-          }
+      <div className="dta">
+        {data && data.map((it) => <BlogItem key={it.id} {...it} />)}
       </div>
     </div>
   );
@@ -139,81 +156,3 @@ BlogList.defaultProps = {
 };
 
 export default BlogList;
-
-// const BlogList=({blogList})=>{
-//   const navigate=useNavigate();
-//   const[sortType, setSortType]=useState("latest");
-//   const [form, setForm] = useState({search:""});
-
-//   // //search
-//   const onKeyPress = (e) => {
-//     if (e.key === "Enter") {
-//       setForm({
-//         search:""
-//       });
-//    alert("검색완료");
-//     };
-//   };
-  
-
-//   const getProcessedBlogList=()=>{
-//     const compare=(a,b)=>{
-//     if(sortType==='latest'){
-//         return parseInt(b.date)-parseInt(a.date);
-//       }else{
-//         return parseInt(a.date)-parseInt(b.date);
-//       }
-//     };
-//     const copyList=JSON.parse(JSON.stringify(blogList));
-
-//     const filteredList=copyList;
-
-//     const sortedList=filteredList.sort(compare);
-//     return sortedList;
-//   };
-//   return( 
-//   <div className="BlogList">
-//     <div className="menu_wrapper" style={{display:"block"}}>
-//       <div className="left_col" style={{  marginTop:"10px",marginLeft: "50px",float:"left", cursor:"pointer",  }}>
-//       <ControlMenu value={sortType} style={{display:"inlineBlock"}}
-//       onChange={setSortType} optionList={sortOptionList}/>
-      
-//       {/*search*/}
-//       <form style={{display:"inline", marginLeft:"15px"}}>
-//       <input type="text" 
-//       style={{width:"160px",height:"19px",borderRadius:"6px",cursor:"pointer" }} 
-//       value={form.search} name="search"  
-//       onChange={(e) => {
-//         setForm({ search: e.target.value });
-//       }}
-//       onKeyPress={onKeyPress}  placeholder="Search..." />
-//       </form>
-//       {/*search*/}
-      
-//       </div>
-//       <button
-//         style={{width:"90px",height:"25px",borderRadius:"6px", float:"right" ,marginTop:" 10px",marginRight: "50px",cursor:"pointer", marginBottom:"10px" }}
-//           onClick={() => {
-//             navigate('/write');
-//           }}
-//         >
-//           글쓰기
-//         </button>
-//     </div>
-//     <hr style={{height:"1.2px", background:"#5e4a48", width:"100%"}}/>
-//    <div className="dta" style={{}}>
-//        {getProcessedBlogList().map((it)=>(
-//       // <div key={it.id}>{it.content} {it.emotion}</div>
-//       <BlogItem  key={it.id} {...it}/>
-//     ))}
-//     </div>
- 
-//   </div>
-  
-//   );
-// };
-// BlogList.defaultProps={
-//   blogList:[],
-// };
-
-// export default BlogList;

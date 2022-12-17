@@ -1,102 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap");
 @font-face {
-  font-family: 'KOFIHDrLEEJWTTF-B';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/KOFIHDrLEEJWTTF-B.woff2') format('woff2');
+  font-family: "KOFIHDrLEEJWTTF-B";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/KOFIHDrLEEJWTTF-B.woff2")
+    format("woff2");
   font-weight: 700;
   font-style: normal;
 }
 /* App */
 .App {
-    margin:0px auto;
-    font-family: 'Noto Sans KR', sans-serif;
-   
+  margin: 0px auto;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 /* editor */
-.Header{
-    width:100%;
-    text-align: center;
-    
+.Header {
+  width: 100%;
+  text-align: center;
 }
- .Login{
-    width:100%;
-    text-align: center;
-  }
-
-
+.Login {
+  width: 100%;
+  text-align: center;
+}
 
 /*Header 비디오 밝기*/
-.hd2 video{
-  filter: brightness(80%)
+.hd2 video {
+  filter: brightness(80%);
 }
 
-.title{
+.title {
   /* color:#313031; */
-  background: linear-gradient( to right top, #5d4944, #2b2c2c);
+  background: linear-gradient(to right top, #5d4944, #2b2c2c);
   color: transparent;
   -webkit-background-clip: text;
   font-weight: bold;
-  
 }
 
-
-.login{
-  color:#313031;
+.login {
+  color: #313031;
   font-weight: bold;
 }
-.logo2{
-  color:#313031;
+.logo2 {
+  color: #313031;
   font-weight: bold;
 }
-button{
-  border:2px solid;
+button {
+  border: 2px solid;
   font-size: 13px;
-  border-color:#313031;
+  border-color: #313031;
   background-color: #f4f7fa;
   font-weight: bold;
-  color:#313031;
+  color: #313031;
   transition: all 0.2s linear;
 }
-button:hover{
-  background-color:#313031;
-  color:white;
+button:hover {
+  background-color: #313031;
+  color: white;
   transform: scale(1.1);
 }
-input{
-  border-color:#313031;
-  border:2px solid;
+input {
+  border-color: #313031;
+  border: 2px solid;
   font-weight: bold;
-  color:#313031;
+  color: #313031;
   background-color: #f4f7fa;
 }
 
-.ControlMenu{
-  border-color:#313031;
-  border:2px solid;
+.ControlMenu {
+  border-color: #313031;
+  border: 2px solid;
   font-weight: bold;
-  color:#313031;
+  color: #313031;
   background-color: #f4f7fa;
 }
-form input ,textarea{
-  border-color:#313031;
-  border:2px solid;
+form input,
+textarea {
+  border-color: #313031;
+  border: 2px solid;
   font-weight: bold;
   background-color: #f4f7fa;
-  color:#313031;
+  color: #313031;
   border-radius: 3px;
 }
-.inner{
-  border-color:#313031;
-  border:2px solid;
+.inner {
+  border-color: #313031;
+  border: 2px solid;
 }
-.foot{
+.foot {
   color: #313031;
   font-size: 18px;
   font-weight: bold;
 }
-.imgy{
+.imgy {
   transition: all 0.2s linear;
 }
-.imgy:hover{
+.imgy:hover {
   transform: scale(1.1);
 }

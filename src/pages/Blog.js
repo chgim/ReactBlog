@@ -5,14 +5,8 @@ import { BlogStateContext } from "../App";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-
-
-
-
-
-
- const env=process.env;
-  env.PUBLIC_URL=env.PUBLIC_URL || "";
+const env = process.env;
+env.PUBLIC_URL = env.PUBLIC_URL || "";
 
 const Blog = () => {
   const { id } = useParams(); // pathVariable = id
@@ -26,7 +20,6 @@ const Blog = () => {
           (e) => (e.id = id)
         )
       : []
-
   );
   const [commentInput, setCommentInput] = useState({
     id: id,
@@ -42,12 +35,10 @@ const Blog = () => {
     if (JSON.parse(localStorage.getItem("commentAll"))) {
       setComments(
         JSON.parse(localStorage.getItem("commentAll")).filter(
-          (e) => (e.id = id)
+          (e) => e.id === id
         )
       );
-     
     }
-    
   }, [update]);
 
   useEffect(() => {
@@ -74,60 +65,137 @@ const Blog = () => {
   }
   // 데이터가 존재하면
   else {
-  
-
-
-
-
-
-
-
     return (
       <div className="BlogPage">
-        
         <Header />
-      <div className="all" style={{backgroundColor:"white", width:"50%", marginLeft:"25%", marginTop:"100px", borderRadius:"5px",}}>
-        <div className="top" style={{width:"80%", marginLeft:"10%", paddingTop:"40px"}}>
-          <div style={{ fontSize:"33px", fontWeight:"bold"}}>{data.title}</div>
-           <div style={{marginLeft:"3px",marginTop:"8px", fontWeight:"bold", fontSize:"16px",color:"#404040"}}> {getStringDate(new Date(data.date))}</div>
-           <hr style={{width:"100%" ,textAlign:"center", border:"1px solid", background:"#313031", marginBottom:"50px", opacity:"0.3", marginTop:"10px"}}/>
-        </div>
-        {/* <img  src={process.env.PUBLIC_URL+`images/a${id}.jpg`} alt="fail" style={{width:"90%", height:"480px", opacity:"0.9", marginLeft:"5%", marginBottom:"50px", borderRadius:"5px" }}/> */}
-        <img  src="/images/a5.jpg" alt="fail" style={{width:"90%", height:"480px", opacity:"0.9", marginLeft:"5%", marginBottom:"50px", borderRadius:"5px" }}/>
-        <div style={{width:"90%", marginLeft:"5%",letterSpacing:"1px", lineHeight:"35px", fontSize:"20px", color:"#202020", paddingBottom:"40px"}}>{data.content}</div>
+        <div
+          className="all"
+          style={{
+            backgroundColor: "white",
+            width: "50%",
+            marginLeft: "25%",
+            marginTop: "100px",
+            borderRadius: "5px",
+          }}
+        >
+          <div
+            className="top"
+            style={{ width: "80%", marginLeft: "10%", paddingTop: "40px" }}
+          >
+            <div style={{ fontSize: "33px", fontWeight: "bold" }}>
+              {data.title}
+            </div>
+            <div
+              style={{
+                marginLeft: "3px",
+                marginTop: "8px",
+                fontWeight: "bold",
+                fontSize: "16px",
+                color: "#404040",
+              }}
+            >
+              {" "}
+              {getStringDate(new Date(data.date))}
+            </div>
+            <hr
+              style={{
+                width: "100%",
+                textAlign: "center",
+                border: "1px solid",
+                background: "#313031",
+                marginBottom: "50px",
+                opacity: "0.3",
+                marginTop: "10px",
+              }}
+            />
+          </div>
+          {/* <img  src={process.env.PUBLIC_URL+`images/a${id}.jpg`} alt="fail" style={{width:"90%", height:"480px", opacity:"0.9", marginLeft:"5%", marginBottom:"50px", borderRadius:"5px" }}/> */}
+          <img
+            // src="/images/a5.jpg"
+            src={"http://localhost:3000/images/a" + id + ".jpg"}
+            alt="fail"
+            style={{
+              width: "90%",
+              height: "480px",
+              opacity: "0.9",
+              marginLeft: "5%",
+              marginBottom: "50px",
+              borderRadius: "5px",
+            }}
+          />
+          <div
+            style={{
+              width: "90%",
+              marginLeft: "5%",
+              letterSpacing: "1px",
+              lineHeight: "35px",
+              fontSize: "20px",
+              color: "#202020",
+              paddingBottom: "40px",
+            }}
+          >
+            {data.content}
+          </div>
         </div>
         <div
           className="dat"
-          style={{ fontSize: "22px", marginTop: "120px", marginLeft: "50px", marginBottom:"7px", fontWeight:"bold", color:"#313031" }}
+          style={{
+            fontSize: "22px",
+            marginTop: "120px",
+            marginLeft: "50px",
+            marginBottom: "7px",
+            fontWeight: "bold",
+            color: "#313031",
+          }}
         >
           댓글쓰기
         </div>
         <hr style={{ height: "1.4px", background: "#313031", width: "100%" }} />
-        <div className="commentAll" >
-        
-        {comments[0] &&
-          comments.map((item) => (
-            <div>
-              <div className="comments" style={{marginLeft:"50px",}}>
-              <div style={{fontWeight:"bold", fontSize:"16px", marginBottom:"5px"}}>{item.user}</div>
-              <div style={{fontSize:"14px"}}>{item.comment}</div>
+        <div className="commentAll">
+          {comments[0] &&
+            comments.map((item) => (
+              <div>
+                <div className="comments" style={{ marginLeft: "50px" }}>
+                  <div
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    {item.user}
+                  </div>
+                  <div style={{ fontSize: "14px" }}>{item.comment}</div>
+                </div>
+                <hr />
               </div>
-              <hr/>  
-            </div>
-          ))}
-          
-          </div>
+            ))}
+        </div>
         <input
-        style={{width:"10%",height:"22px", marginBottom:"10px", marginLeft:"50px",borderRadius:"3px",marginTop:"20px" }}
+          style={{
+            width: "10%",
+            height: "22px",
+            marginBottom: "10px",
+            marginLeft: "50px",
+            borderRadius: "3px",
+            marginTop: "20px",
+          }}
           placeholder="작성자"
           type="text"
           value={commentInput.user}
           onChange={(e) => {
             setCommentInput({ ...commentInput, user: e.target.value });
           }}
-        /><br/>
+        />
+        <br />
         <textarea
-          style={{width:"30%", height:"50px", marginLeft:"50px",borderRadius:"3px", display:"block"}}
+          style={{
+            width: "30%",
+            height: "50px",
+            marginLeft: "50px",
+            borderRadius: "3px",
+            display: "block",
+          }}
           placeholder="글을 작성해 주세요."
           value={commentInput.comment}
           onChange={(e) => {
@@ -135,7 +203,14 @@ const Blog = () => {
           }}
         />
         <button
-          style={{width:"90px",height:"25px",borderRadius:"3px",marginLeft:"50px",cursor:"pointer" ,marginTop:"10px"}}
+          style={{
+            width: "90px",
+            height: "25px",
+            borderRadius: "3px",
+            marginLeft: "50px",
+            cursor: "pointer",
+            marginTop: "10px",
+          }}
           onClick={() => {
             let commentData = localStorage.getItem("commentAll")
               ? JSON.parse(localStorage.getItem("commentAll"))
@@ -146,6 +221,7 @@ const Blog = () => {
             setUpdate(!update);
             alert("댓글 업로드 완료");
             setCommentInput({
+              ...commentInput,
               user: "",
               comment: "",
             });
@@ -155,7 +231,6 @@ const Blog = () => {
           댓글 업로드
         </button>
         <Footer />
-        
       </div>
     );
   }
