@@ -54,7 +54,7 @@ function Register() {
         style={{
           width: "30%",
           height: "390px",
-          margin: "auto",
+          marginLeft: "35%",
           marginTop: "9%",
         }}
       >
@@ -62,6 +62,8 @@ function Register() {
           className="logo2"
           style={{
             textAlign: "center",
+            width: "100%",
+            marginLeft: "0%",
             fontSize: "35px",
             marginBottom: "15px",
             color: "#313031",
@@ -74,7 +76,10 @@ function Register() {
           className="inners"
           style={{
             textAlign: "left",
-            padding: "40px",
+            paddingTop: "40px",
+            paddingBottom: "20px",
+            width: "100%",
+            marginLeft: "0%",
             borderRadius: "10spx",
             border: "3px solid",
             borderColor: "#313031",
@@ -82,9 +87,8 @@ function Register() {
         >
           <form
             style={{
-              textAlign: "left",
-              width: "100%",
-              margin: "auto",
+              width: "80%",
+              marginLeft: "10%",
               color: "#313031",
               fontWeight: "bold",
             }}
